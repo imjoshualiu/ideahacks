@@ -42,7 +42,6 @@ void loop() {
   // read accelerometer data
   recordAccelRegisters();
   //printData();
-  delay(100);
   
   Serial.print("Distance: ");
   Serial.println(distance);
@@ -55,7 +54,6 @@ void loop() {
     delay(100);
     digitalWrite(redled, LOW);
     delay(100);
-    
   }
 
   if (distance <= 9) {
