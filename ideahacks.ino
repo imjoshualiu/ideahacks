@@ -39,7 +39,7 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = duration*0.034/2;
 
-  // === Read acceleromter data === //
+  // read accelerometer data
   recordAccelRegisters();
   //printData();
   delay(100);
@@ -47,7 +47,7 @@ void loop() {
   Serial.print("Distance: ");
   Serial.println(distance);
 
-  //Conditionals
+  //conditionals
   if (distance > 9) {
     tone(buzzer, 14000);
     digitalWrite(greenled, LOW);
@@ -66,6 +66,7 @@ void loop() {
   
 }
 
+//acelerometer functions
 void setupMPU(){
   Wire.beginTransmission(0b1101000); //This is the I2C address of the MPU (b1101000/b1101001 for AC0 low/high datasheet sec. 9.2)
   Wire.write(0x6B); //Accessing the register 6B - Power Management (Sec. 4.28)
